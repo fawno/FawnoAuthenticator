@@ -1,0 +1,31 @@
+{
+    "name": "fawno/authentication",
+    "description": "FawnoAuthenticator plugin for CakePHP",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "cakephp/cakephp": "^4.3",
+        "cakephp/authentication": "@stable",
+        "holt59/cakephp4-bootstrap-helpers": "v3.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5 || ^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "FawnoAuthenticator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FawnoAuthenticator\\Test\\": "tests/",
+            "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "cakephp/plugin-installer": true
+        }
+    }
+}
