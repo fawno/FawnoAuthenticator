@@ -21,4 +21,7 @@
 				$routes->fallbacks();
 			}
 		);
+
+		$routes->connect('/login/*', ['plugin' => 'FawnoAuthenticator', 'controller' => 'Users', 'action' => 'login']);
+		$routes->connect('/logout/*', ['plugin' => 'FawnoAuthenticator', 'controller' => 'Users', 'action' => 'logout']);
 	};
