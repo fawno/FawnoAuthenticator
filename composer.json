@@ -1,5 +1,5 @@
 {
-    "name": "fawno/authentication",
+    "name": "fawno/authenticator",
     "description": "FawnoAuthenticator plugin for CakePHP",
     "type": "cakephp-plugin",
     "license": "MIT",
