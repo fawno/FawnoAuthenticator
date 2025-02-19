@@ -19,6 +19,10 @@
 			$user = $this->getUser();
 			$this->set(compact(['user', 'auth']));
 
+			if ($user['unauthenticated']) {
+				return;
+			}
+
 			if (!$this->isAuthorized($user, $auth)) {
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect('/');
@@ -32,10 +36,10 @@
 			$this->Authentication = $this->loadComponent('Authentication.Authentication');
 		}
 
-		public function getUser () {
+		public function getUser () : array {
 			$user = Configure::read('auth.user_defaults', [
 				'username' => 'anonymous',
-				'displayname' => 'Anónimo',
+				'displayname' => __('Anonymous'),
 				'memberof' => [],
 			]);
 
@@ -45,6 +49,8 @@
 				$this->set('identity', $identity->getOriginalData());
 				$user = ((array) $identity->getOriginalData()) + $user;
 			}
+
+			$user['unauthenticated'] = !$result->isValid();
 
 			return $user;
 		}
