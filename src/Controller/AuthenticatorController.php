@@ -36,6 +36,13 @@
 			$this->Authentication = $this->loadComponent('Authentication.Authentication');
 		}
 
+		protected function addMemberOf (string $group) : void {
+			$identity = $this->Authentication->getIdentity();
+			$data = $identity->getOriginalData();
+			$data['memberof'][$group] = $group;
+			$this->Authentication->setIdentity($data);
+		}
+
 		public function getUser () : array {
 			$user = Configure::read('auth.user_defaults', [
 				'username' => 'anonymous',
