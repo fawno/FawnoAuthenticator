@@ -9,14 +9,8 @@
 			'FawnoAuthenticator',
 			['path' => '/auth'],
 			function (RouteBuilder $routes) {
-				$routes->connect('/', ['controller' => 'Users', 'action' => 'index']);
-				/*
-				$routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
-				$routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
-				$routes->connect('/logout', ['controller' => 'Users']);
-				$routes->connect('/listado/{action}/*', ['controller' => 'Listado']);
-				*/
-				$routes->connect('/{action}', ['controller' => 'Users']);
+				$routes->connect('/', ['plugin' => 'FawnoAuthenticator', 'controller' => 'Users', 'action' => 'index']);
+				$routes->connect('/{action}', ['plugin' => 'FawnoAuthenticator', 'controller' => 'Users']);
 
 				$routes->fallbacks();
 			}
