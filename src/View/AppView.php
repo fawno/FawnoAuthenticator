@@ -30,9 +30,6 @@
 			$this->loadHelper('Panel', [
 				'className' => 'Bootstrap.Panel',
 			]);
-			$this->loadHelper('Table', [
-				'className' => 'DataTables.Table',
-			]);
 			$this->loadHelper('Authentication.Identity');
 		}
 	}
