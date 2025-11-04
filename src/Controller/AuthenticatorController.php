@@ -3,13 +3,13 @@
 
 	namespace FawnoAuthenticator\Controller;
 
-	use App\Controller\AppController as BaseController;
 	use ArrayObject;
 	use Authentication\Controller\Component\AuthenticationComponent;
+	use Cake\Controller\Controller;
 	use Cake\Core\Configure;
 	use Cake\Event\EventInterface;
 
-	class AuthenticatorController extends BaseController {
+	class AuthenticatorController extends Controller {
 		protected AuthenticationComponent $Authentication;
 
 		public function beforeFilter(EventInterface $event) {
